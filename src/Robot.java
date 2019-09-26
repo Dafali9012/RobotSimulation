@@ -1,4 +1,5 @@
 public abstract class Robot {
+
     private int posX;
     private int posY;
     private int speed;
