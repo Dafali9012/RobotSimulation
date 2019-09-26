@@ -38,18 +38,18 @@ public class Simulator {
 
     public void setAntalGeparder(int i) {
         if (i < 1 || i > 10) {
-            inputZebror();
+            inputGeparder();
             return;
         }
 
-        zebror = new Zebra[i];
+        geparder = new Gepard[i];
         while (i > 0) {
-            Zebra z = new Zebra();
-            z.setPosX((int) (Math.random() * 10));
-            z.setPosY((int) (Math.random() * 10));
-            zebror[i - 1] = z;
-            System.out.print(zebror[i - 1].getPosX() + "  ");
-            System.out.println(zebror[i - 1].getPosY());
+            Gepard g = new Gepard();
+            g.setPosX((int) (Math.random() * 10));
+            g.setPosY((int) (Math.random() * 10));
+            geparder[i - 1] = g;
+            System.out.print(geparder[i - 1].getPosX() + "  ");
+            System.out.println(geparder[i - 1].getPosY());
             i--;
         }
     }
