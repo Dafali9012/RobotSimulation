@@ -11,11 +11,31 @@ public class Simulator {
     }
 
     public void run() {
-        inputZebror();
+        inputGeparder();
+       for(int i = 0; i < 10; i++) {
+           for(Gepard g: geparder) {
+               System.out.print("Runda "+i);
+               g.move();
+               g.printInfo();
+           }
+       }
     }
 
+    public void removeZebraCheck() {
+        for(int i = 0; i < geparder.length; i++) {
+            for(int j = 0 ;j < zebror.length; j++) {
+                if(geparder[i].getPosX() == zebror[j].getPosX() && geparder[i].getPosY() == zebror[j].getPosY()) {
+
+                    zebror[j]=null;
+                }
+            }
+        }
+    }
+
+
+
     public void setAntalZebra(int i) {
-        if (i < 1 || i > 10) {
+        if (i < geparder.length || i > 10) {
             inputZebror();
             return;
         }
@@ -32,8 +52,8 @@ public class Simulator {
         }
     }
 
-    public int getzebror() {
-        return zebror.length;
+    public Zebra getZebra(int i) {
+        return zebror[i];
     }
 
     public void setAntalGeparder(int i) {
