@@ -1,7 +1,11 @@
-public class Robot {
+public abstract class Robot {
     private int posX;
     private int posY;
     private int speed;
+
+    public Robot() {
+
+    }
 
     public void setPosX(int posX) {
         this.posX = posX;
