@@ -1,25 +1,31 @@
 public abstract class Rutplan {
-    private String[][] rutplan;
-    private static int size;
+    private static int size = 10;
+    private static String[][] rutplan = new String[size][size];;
 
     public Rutplan() {
-        size = 10;
-        rutplan = new String[size][size];
+
     }
 
-    public void getPos(int x, int y) {
-        //return rutplan[x][y];
+    public static String[][] getRutplan() {
+        return rutplan;
     }
 
     public static int getSize() {
         return size;
     }
 
-    public void print() {
+
+
+    public static void print() {
         for (int y = 0; y < size; y++) {
             for(int x = 0; x < size; x++) {
-
-                rutplan[y][x] = "@  ";
+                rutplan[y][x] = ".  ";
+                for(Zebra z: Simulator.getZebror()){
+                    rutplan[z.getPosY()][z.getPosX()] = "Z  ";
+                }
+                for(Gepard g : Simulator.getGeparder()) {
+                    rutplan[g.getPosY()][g.getPosX()] = "G  ";
+                }
                 System.out.print(rutplan[y][x]);
                 if(x == 9) System.out.print("\n");
             }

@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Simulator {
 
-    private Zebra[] zebror;
-    private Gepard[] geparder;
+    private static Zebra[] zebror;
+    private static Gepard[] geparder;
 
     public Simulator() {
 
@@ -12,26 +12,43 @@ public class Simulator {
 
     public void run() {
         inputGeparder();
-       for(int i = 0; i < 10; i++) {
-           for(Gepard g: geparder) {
-               System.out.print("Runda "+i);
-               g.move();
-               g.printInfo();
-           }
-       }
+        inputZebror();
+
+        for (int i = 0; i < 10; i++) { // Game
+
+            for (Gepard g : geparder) {
+                g.move();
+                g.printInfo();
+            }
+            for (Zebra z : zebror) {
+                z.move();
+                z.printInfo();
+            }
+            System.out.print("Runda " + i + ":\n");
+            Rutplan.print();
+        }
+
+       // gameLoop();
+    }
+
+    public void gameLoop() {
+        int rundor = 10;
+        geparder[0].move();
+        geparder[1].move();
+        rundor--;
+        if(rundor>0) gameLoop();
     }
 
     public void removeZebraCheck() {
-        for(int i = 0; i < geparder.length; i++) {
-            for(int j = 0 ;j < zebror.length; j++) {
-                if(geparder[i].getPosX() == zebror[j].getPosX() && geparder[i].getPosY() == zebror[j].getPosY()) {
+        for (int i = 0; i < geparder.length; i++) {
+            for (int j = 0; j < zebror.length; j++) {
+                if (geparder[i].getPosX() == zebror[j].getPosX() && geparder[i].getPosY() == zebror[j].getPosY()) {
 
-                    zebror[j]=null;
+                    zebror[j] = null;
                 }
             }
         }
     }
-
 
 
     public void setAntalZebra(int i) {
@@ -52,8 +69,8 @@ public class Simulator {
         }
     }
 
-    public Zebra getZebra(int i) {
-        return zebror[i];
+    public static Zebra[] getZebror() {
+        return zebror;
     }
 
     public void setAntalGeparder(int i) {
@@ -74,8 +91,8 @@ public class Simulator {
         }
     }
 
-    public int getgeparder() {
-        return geparder.length;
+    public static Gepard[] getGeparder() {
+        return geparder;
     }
 
     public void inputZebror() {
