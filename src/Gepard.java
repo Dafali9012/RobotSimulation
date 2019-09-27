@@ -3,7 +3,7 @@ public class Gepard extends Robot {
     int restTime = 0;
 
     public Gepard() {
-        setSpeed(3);
+        setSpeed(1);
     }
 
     public void eat() {
@@ -17,6 +17,10 @@ public class Gepard extends Robot {
 
     public void run() {
 
+    }
+    @Override
+    public void printInfo() {
+        System.out.printf("x:%d y:%d%n", getPosX(), getPosY());
     }
 }
 

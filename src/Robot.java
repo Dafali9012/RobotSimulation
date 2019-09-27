@@ -19,7 +19,7 @@ public abstract class Robot {
                 }
                 break;
             case 1:
-                if(getPosX() == 0 ){
+                if(getPosX() == 0){
                     move();
                 }
                 else{
