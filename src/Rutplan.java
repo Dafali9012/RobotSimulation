@@ -16,8 +16,8 @@ public abstract class Rutplan {
     }
 
     public void print() {
-        for (int y = 0; y < 10; y++) {
-            for(int x = 0; x < 10; x++) {
+        for (int y = 0; y < size; y++) {
+            for(int x = 0; x < size; x++) {
 
                 rutplan[y][x] = "@  ";
                 System.out.print(rutplan[y][x]);
