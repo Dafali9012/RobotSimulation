@@ -11,18 +11,40 @@ public abstract class Robot {
     public void move() {
         switch ((int) (Math.random() * 4)) { // Välj en slumpad riktning att gå mot.
             case 0:
-                setPosX(getPosX()+getSpeed()); // Flytta till höger
+                if(getPosX() == Rutplan.getSize() -1 ){
+                    move();
+                }
+                else{
+                    setPosX(getPosX()+getSpeed()); // Flytta till höger
+                }
                 break;
             case 1:
-                setPosX(getPosX()-getSpeed()); // Flytta vänster
+                if(getPosX() == 0 ){
+                    move();
+                }
+                else{
+                    setPosX(getPosX()-getSpeed()); // Flytta till vänster
+                }
                 break;
             case 2:
-                setPosY(getPosY()+getSpeed()); // Flytta ner
+                if(getPosY() == Rutplan.getSize() -1 ){
+                    move();
+                }
+                else{
+                    setPosY(getPosY()+getSpeed()); // Flytta ner
+                }
                 break;
             case 3:
-                setPosY(getPosY()-getSpeed()); // flytta upp
+                if(getPosY() == 0 ){
+                    move();
+                }
+                else{
+                    setPosY(getPosY()-getSpeed()); // Flytta upp
+                }
                 break;
         }
+
+
     }
 
 
