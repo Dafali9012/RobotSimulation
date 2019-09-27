@@ -14,29 +14,34 @@ public class Simulator {
         inputGeparder();
         inputZebror();
 
-        for (int i = 0; i < 10; i++) { // Game
-
-            for (Gepard g : geparder) {
-                g.move();
-                g.printInfo();
-            }
-            for (Zebra z : zebror) {
-                z.move();
-                z.printInfo();
-            }
-            System.out.print("Runda " + i + ":\n");
-            Rutplan.print();
-        }
-
-       // gameLoop();
+        gameLoop(10);
     }
 
-    public void gameLoop() {
-        int rundor = 10;
-        geparder[0].move();
-        geparder[1].move();
-        rundor--;
-        if(rundor>0) gameLoop();
+    public void gameLoop(int rundor) {
+        int i = rundor;
+
+        System.out.print("Runda " + i + ":\n");
+        Rutplan.print();
+
+        gepardActions(geparder.length);
+        zebraActions(zebror.length);
+
+        i--;
+        if(rundor>0) gameLoop(i);
+    }
+
+    public void gepardActions(int antal) {
+        int antalGeparder = antal;
+        geparder[antalGeparder-1].move();
+        antalGeparder--;
+        if(antalGeparder>0) gepardActions(antalGeparder);
+    }
+
+    public void zebraActions(int antal) {
+        int antalZebror = antal;
+        zebror[antalZebror-1].move();
+        antalZebror--;
+        if(antalZebror>0) zebraActions(antalZebror);
     }
 
     public void removeZebraCheck() {
