@@ -10,6 +10,13 @@ public class Simulator {
     public Simulator() {
         plan = new Rutplan();
     }
+    public static void setZebror(Zebra[] newVektor){
+        zebror = newVektor;
+    }
+    public static Zebra[] getZebror(){
+
+        return zebror;
+    }
 
     public void run() {
         inputGeparder();
@@ -18,9 +25,21 @@ public class Simulator {
         plan.print();
 
         for(int i = 0; i < 10; i++){
-            for(int g = 0; g < getGeparder().length; g++){}
+            for(int g = 0; g < getGeparder().length; g++){
+                if(!geparder[g].hunt(plan)){
+                    geparder[g].move(plan);}
+
+                plan.write();
+
+            }
+            for(int z = 0; z < getZebror().length; z++){
+                zebror[z].move(plan);
+                plan.write();
+            }
             plan.print();
         }
+
+
     }
 
 
@@ -53,10 +72,6 @@ public class Simulator {
             System.out.println(zebror[i - 1].getPosY());
             i--;
         }
-    }
-
-    public static Zebra[] getZebror() {
-        return zebror;
     }
 
     public void setAntalGeparder(int i) {
