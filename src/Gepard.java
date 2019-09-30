@@ -48,12 +48,14 @@ public class Gepard extends Robot {
             Zebra[]survivingZebras = new Zebra[Simulator.getZebror().length - 1];
             int index = 0;
             for(int i = 0; i < Simulator.getZebror().length; i++){
-                if(!((Simulator.getZebror()[i].getPosX() == getPosX()) && (Simulator.getZebror()[i].getPosY() == getPosY()))){
+
+                //System.out.println(Simulator.getZebror()[i]);
+                if(!((Simulator.getZebror()[i].getPosX() == getPosX()) && (Simulator.getZebror()[i].getPosY() == getPosY()))) {
                     survivingZebras[index] = Simulator.getZebror()[i];
                     index++;
                 }
-                Simulator.setZebror(survivingZebras);
             }
+            Simulator.setZebror(survivingZebras);
         }
 
 

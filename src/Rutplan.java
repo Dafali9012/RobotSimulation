@@ -3,7 +3,7 @@ public class Rutplan {
     private String[][] rutplan;
 
     public Rutplan() {
-    size = 10;
+    size = 20;
     rutplan = new String[size][size];
     }
 
@@ -39,7 +39,7 @@ public class Rutplan {
         for (int y = 0; y < size; y++) {
             for (int x = 0; x < size; x++) {
                 System.out.print(rutplan[y][x]);
-                if (x == 9) System.out.print("\n");
+                if (x == 19) System.out.print("\n");
             }
         }
         System.out.print("\n");

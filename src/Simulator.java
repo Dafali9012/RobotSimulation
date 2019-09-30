@@ -24,7 +24,9 @@ public class Simulator {
         plan.write();
         plan.print();
 
-        for(int i = 0; i < 10; i++){
+        int loop = 0;
+        while(zebror.length > 0) {
+
             for(int g = 0; g < getGeparder().length; g++){
                 if(!geparder[g].hunt(plan)){
                     geparder[g].move(plan);}
@@ -36,6 +38,7 @@ public class Simulator {
                 zebror[z].move(plan);
                 plan.write();
             }
+            System.out.printf("Runda #%d%n",++loop);
             plan.print();
         }
 
