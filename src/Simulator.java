@@ -28,20 +28,31 @@ public class Simulator {
         while(zebror.length > 0) {
 
             for(int g = 0; g < getGeparder().length; g++){
-                if(!geparder[g].hunt(plan)){
-                    geparder[g].move(plan);}
-
-                plan.write();
-
+                if(geparder[g].getRestTime() ==0 ) {
+                    if (!geparder[g].hunt(plan)) {
+                        geparder[g].move(plan);
+                        plan.write();
+                    } else {
+                        geparder[g].setRestTime(5);
+                    }
+                }else {
+                    geparder[g].setRestTime(geparder[g].getRestTime()-1);
+                }
             }
             for(int z = 0; z < getZebror().length; z++){
                 zebror[z].move(plan);
                 plan.write();
             }
+            System.out.printf("%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n%n");
             System.out.printf("Runda #%d%n",++loop);
             plan.print();
-        }
+            try {
+                Thread.sleep(350);
+            } catch (InterruptedException e) {
 
+            }
+        }
+        System.out.printf("- Game Over -");
 
     }
 

@@ -3,8 +3,8 @@ public class Rutplan {
     private String[][] rutplan;
 
     public Rutplan() {
-    size = 20;
-    rutplan = new String[size][size];
+        size = 10;
+        rutplan = new String[size][size];
     }
 
     public String[][] getRutplan() {
@@ -15,14 +15,14 @@ public class Rutplan {
         return size;
     }
 
-    public void insertValue(){
+    public void insertValue() {
 
     }
 
 
     public void write() {
         for (int y = 0; y < size; y++) {
-            for(int x = 0; x < size; x++) {
+            for (int x = 0; x < size; x++) {
                 rutplan[y][x] = ".  ";
                 for (Zebra z : Simulator.getZebror()) {
                     rutplan[z.getPosY()][z.getPosX()] = "Z  ";
@@ -31,7 +31,6 @@ public class Rutplan {
                     rutplan[g.getPosY()][g.getPosX()] = "G  ";
                 }
             }
-
         }
     }
 
@@ -39,7 +38,7 @@ public class Rutplan {
         for (int y = 0; y < size; y++) {
             for (int x = 0; x < size; x++) {
                 System.out.print(rutplan[y][x]);
-                if (x == 19) System.out.print("\n");
+                if (x == size - 1) System.out.print("\n");
             }
         }
         System.out.print("\n");

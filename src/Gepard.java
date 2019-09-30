@@ -45,6 +45,7 @@ public class Gepard extends Robot {
                 break;
         }
         if(foundZebra==true){
+
             Zebra[]survivingZebras = new Zebra[Simulator.getZebror().length - 1];
             int index = 0;
             for(int i = 0; i < Simulator.getZebror().length; i++){
@@ -60,6 +61,14 @@ public class Gepard extends Robot {
 
 
         return foundZebra;
+    }
+
+    public void setRestTime(int i) {
+        restTime = i;
+    }
+
+    public int getRestTime() {
+        return restTime;
     }
 
 
