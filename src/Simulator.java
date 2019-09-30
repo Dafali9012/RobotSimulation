@@ -5,44 +5,25 @@ public class Simulator {
 
     private static Zebra[] zebror;
     private static Gepard[] geparder;
+    private Rutplan plan;
 
     public Simulator() {
-
+        plan = new Rutplan();
     }
 
     public void run() {
         inputGeparder();
         inputZebror();
+        plan.write();
+        plan.print();
 
-        gameLoop(10);
+        for(int i = 0; i < 10; i++){
+            for(int g = 0; g < getGeparder().length; g++){}
+            plan.print();
+        }
     }
 
-    public void gameLoop(int rundor) {
-        int i = rundor;
 
-        System.out.print("Runda " + i + ":\n");
-        Rutplan.print();
-
-        gepardActions(geparder.length);
-        zebraActions(zebror.length);
-
-        i--;
-        if(rundor>0) gameLoop(i);
-    }
-
-    public void gepardActions(int antal) {
-        int antalGeparder = antal;
-        geparder[antalGeparder-1].move();
-        antalGeparder--;
-        if(antalGeparder>0) gepardActions(antalGeparder);
-    }
-
-    public void zebraActions(int antal) {
-        int antalZebror = antal;
-        zebror[antalZebror-1].move();
-        antalZebror--;
-        if(antalZebror>0) zebraActions(antalZebror);
-    }
 
     public void removeZebraCheck() {
         for (int i = 0; i < geparder.length; i++) {
