@@ -1,11 +1,7 @@
 public class Zebra extends Robot {
     public Zebra() {
         setSpeed(1);
-    }
-
-    public void run() {
-
-    }
+    } // default konstruktor sätter hastighet till 1
 
     @Override
     public void printInfo() {
